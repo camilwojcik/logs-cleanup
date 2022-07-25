@@ -14,5 +14,8 @@
             "email": "camilwojcik@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpunit/phpunit": "^9.5",
+        "php": "^8.1"
+    }
 }
