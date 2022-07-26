@@ -2,7 +2,7 @@
     "name": "camilwojcik/logs-cleanup",
     "description": "Simple package with class that clears logs older than given date (in text format). Recomended use in your Cron.php file.",
     "type": "library",
-    "license": "open-source",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Camilwojcik\\LogsCleanup\\": "src/"
