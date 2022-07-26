@@ -37,6 +37,7 @@ class LogCleaner{
     /**
      * Iterates throught Cleaners and deletes logs older than given time
      * @var DateTime $dateTime - DateTime to clear log entries
+     * @throws Exception - upon running without specified cleaners.
      */
     public function clear(DateTime $dateTime):int
     {
@@ -46,6 +47,24 @@ class LogCleaner{
 
         foreach($this->cleanerCollection as $cleaner){
             $cleaner->clear($dateTime);
+        }
+
+        return count($this->cleanerCollection);
+    }
+
+    /**
+     * Iterates throught Cleaners and deletes logs older than given time
+     * @var DateTime $dateTime - DateTime to clear log entries
+     * @throws Exception - upon running without specified cleaners.
+     */
+    public function clearAll():int
+    {
+        if(empty($this->cleanerCollection)){
+            throw new Exception('Cant clear logs without initialised cleaners!');
+        }
+
+        foreach($this->cleanerCollection as $cleaner){
+            $cleaner->clearAll();
         }
 
         return count($this->cleanerCollection);
