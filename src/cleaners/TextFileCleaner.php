@@ -15,6 +15,8 @@ class TextFileCleaner implements Cleaner{
 
     public function clear(DateTime $dateTime): void
     {
+        #in case of huge log files limit exec time to 5 mins; (should be enough for ~4.5Gb Log file)
+        set_time_limit(300);
         $match = null;
         $reading = fopen($this->path, 'r');
         $writing = fopen($this->path . '.tmp', 'w');
