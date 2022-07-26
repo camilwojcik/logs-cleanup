@@ -2,9 +2,8 @@
 
 class TextFileCleaner implements Cleaner{
 
-    private String $path;
     
-    public function __construct(String $path)
+    public function __construct(private String $path)
     {
         # code...
     }
